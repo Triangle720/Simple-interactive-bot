@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 import sys
+from nltk import download
 from simple_bot import SimpleBot
+
+
+# !!! IMPORTANT !!!
+# Uncomment function 'download()' if you are running this program for the first time
+# I'll clarify which files are needed in later commits
+# download()
 
 FLAGS = {
     '-k' : 0,
@@ -19,7 +26,6 @@ def run():
 
 def main(mode: int):
     bot = SimpleBot()
-    bot.welcome()
     if mode:
         while 1:
             bot.listen()

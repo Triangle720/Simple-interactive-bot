@@ -4,6 +4,10 @@ import os
 docDir = 'Documents'
 softFile = 'Softwares.txt'
  
+def init_files_if_not_exist():
+    create_soft_file()
+    create_docs_directory()
+
 def read_aliases_and_paths():
     result = []
     if file_exist(softFile):
