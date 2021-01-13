@@ -6,10 +6,10 @@ Project created for *"Natural Language Processing"* classes.
 # Requirements
 
 - SDK
--- Python 3.8.7
+  - Python 3.8.7
 - Packages
--- nltk 3.5
--- SpeechRecognition 3.8.1
+  - nltk 3.5
+  - SpeechRecognition 3.8.1
 
 # How to run
 1) Open cmd
