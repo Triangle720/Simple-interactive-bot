@@ -14,14 +14,14 @@ def read_aliases_and_paths():
         with open(softFile, 'r', encoding='UTF-8') as f:
             for line in f:
                 if line[0] != '#':
-                    result.append(line.split('|'))
+                    result.append(line.rstrip('\n').split('|'))
     return result
 
 def find_file_path(fileName: str):
     if directory_exist(docDir):
         for file in os.listdir(docDir):
-            if file.name == fileName:
-                return os.path.abspath(file)
+            if fileName == file[:file.index('.')].lower():
+                return os.path.join(docDir, file)
     return None
 
 def create_soft_file():

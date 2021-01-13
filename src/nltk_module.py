@@ -3,14 +3,15 @@ from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
 
 
-actionTokens = ['open', 'execut', 'run']
+actionTokens = ['open', 'execut', 'run', 
+                'show', 'read', 'go']
 
 def get_actions_with_args(sentence: str):
     words = word_tokenize(sentence)
     tokens = pos_tag(words)
     stemmed = stem(tokens)
-    final_list = retokenize_args_and_split_actions(words, stemmed)
-    return final_list
+    results = retokenize_args_and_split_actions(words, stemmed)
+    return results
 
 def stem(tokens: list):
     stemmer = PorterStemmer()
@@ -29,7 +30,6 @@ def retokenize_args_and_split_actions(words: list, stemmed: list):
         else:
             temp.append(words[i])
     result.append(temp) # add last action
-
     if result[0][0] not in actionTokens:
         return result[1:]
     return result
