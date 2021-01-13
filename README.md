@@ -1,5 +1,5 @@
 # Simple interactive bot
-Bot that executes your commands.
+Bot that executes your commands.  
 Project created for *"Natural Language Processing"* classes.
 
 
@@ -20,7 +20,7 @@ Project created for *"Natural Language Processing"* classes.
   - **-k** or **-\-keyboard** (default) -> bot reads user input
   - **-v** or **-\-voice** -> bot listens user commands
 
-Voice mode is slower because it sends requests to *Google Speech Recognition API*.
+Voice mode is slower because it sends requests to *Google Speech Recognition API*.  
 Additionally, commands must be pronounced loud and clear (but it's more useful and funnier).
 
 # At first start
@@ -38,18 +38,18 @@ After first run, bot will create file 'Softwares.txt' and directory 'Documents' 
 You will find some instructions there, but I'll give some examples here:
 
 1) **Softwares.txt** should looks like this:
-chrome|C:\Program Files\Google\Chrome\Application\chrome.exe
-steam|C:\Program Files (x86)\Steam\Steam.exe
-..
-code|C:\Users\User\AppData\Local\Programs\Microsoft VS Code\Code.exe
-settings|%windir%\System32\Control.exe`
+chrome|C:\Program Files\Google\Chrome\Application\chrome.exe  
+steam|C:\Program Files (x86)\Steam\Steam.exe  
+..  
+code|C:\Users\User\AppData\Local\Programs\Microsoft VS Code\Code.exe  
+settings|%windir%\System32\Control.exe  
 
-	etc. (**pattern:** one-part alias + '|' character +  full path to the executable)
+	etc. (**pattern:** one-part alias + '|' character +  full path to the executable)  
 
 2) **./Documents/** directory should contains:
 one-part named files with any supported extension
 
-If everything is done, bot is ready to work!
+If everything is done, bot is ready to work!  
 
 - Avaible commands:
   - **open, execute, run** -> run `software`
@@ -67,4 +67,4 @@ If everything is done, bot is ready to work!
 	2) What's about **executing** `code` editor?
 	3) You should **open** `settings` and **go** to website named: `stackoverflow.com`.
 
-Have fun and feel free to modify!
+Have fun and feel free to modify!  
