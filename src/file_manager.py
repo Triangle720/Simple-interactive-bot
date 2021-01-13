@@ -13,8 +13,10 @@ def read_aliases_and_paths():
     if file_exist(softFile):
         with open(softFile, 'r', encoding='UTF-8') as f:
             for line in f:
-                if line[0] != '#':
-                    result.append(line.rstrip('\n').split('|'))
+                if line[0] != '#' and '|' in line:
+                    temp = line.rstrip('\n').split('|')
+                    if len(temp) == 2:
+                        result.append(temp)
     return result
 
 def find_file_path(fileName: str):

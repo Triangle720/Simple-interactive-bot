@@ -40,4 +40,4 @@ class SimpleBot():
         if actions:
             return self.executor.asign_functions_and_run(actions)
         else:
-            return 'there is no actions'
+            return 'There is no actions.'

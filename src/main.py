@@ -6,7 +6,6 @@ from simple_bot import SimpleBot
 
 # !!! IMPORTANT !!!
 # Uncomment function 'download()' if you are running this program for the first time
-# I'll clarify which files are needed in later commits
 # download()
 
 FLAGS = {

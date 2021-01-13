@@ -4,7 +4,7 @@ from nltk.tokenize import word_tokenize
 
 
 actionTokens = ['open', 'execut', 'run', 
-                'show', 'read', 'go']
+                'show', 'read', 'go', 'updat']
 
 def get_actions_with_args(sentence: str):
     words = word_tokenize(sentence)

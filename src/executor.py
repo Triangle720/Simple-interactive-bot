@@ -7,11 +7,13 @@ class Function(Enum):
     RUN_SOFTWARE = 1
     OPEN_DOCUMENT = 2
     OPEN_WEB_PAGE = 3
+    UPDATE_SOFT_DATA = 4
 
 functionGroups = {
     ('open', 'execut', 'run') : Function.RUN_SOFTWARE,
     ('open', 'show', 'read') : Function.OPEN_DOCUMENT,
-    ('open', 'show', 'go') : Function.OPEN_WEB_PAGE
+    ('open', 'show', 'go') : Function.OPEN_WEB_PAGE,
+    ('update') : Function.UPDATE_SOFT_DATA
 }
 
 class Executor():
@@ -35,7 +37,8 @@ class Executor():
         switch = {
             Function.RUN_SOFTWARE : self.execute_program,
             Function.OPEN_DOCUMENT : self.open_document,
-            Function.OPEN_WEB_PAGE : self.open_web_page
+            Function.OPEN_WEB_PAGE : self.open_web_page,
+            Function.UPDATE_SOFT_DATA : self.update_bot_data
         }
         results = ''
         commandNum = 1
@@ -59,7 +62,11 @@ class Executor():
         for software in self.softwares:
             for arg in args:
                 if arg == software[0]:
-                    return self.cmd_start(software[1])
+                    if fm.file_exist(software[1]): 
+                        return self.cmd_start(software[1])
+                    else:
+                        print('FAILED - INCORRECT PATH')
+                        return True
         return self.wrong_args()
 
     def open_document(self, args: list):
@@ -77,6 +84,16 @@ class Executor():
             if self.is_url(arg):
                 return self.cmd_start(f'https://{arg}')
         return self.wrong_args()
+
+    def update_bot_data(self, args: list):
+        print(f'bot > Trying to {Function.UPDATE_SOFT_DATA.name}: ', end='')
+        newData = fm.read_aliases_and_paths()
+        if newData:
+            self.softwares = newData
+            print('SUCCESS')
+        else:
+            print('FAILED - NO DATA TO READ')
+        return True
 
     def is_url(self, arg: str):
         return match(self.url_pattern, arg)
