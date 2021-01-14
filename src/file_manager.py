@@ -1,8 +1,8 @@
 import os
 
 
-docDir = 'Documents'
-softFile = 'Softwares.txt'
+DOCS_DIR = 'Documents'
+SOFT_FILE = 'Softwares.txt'
  
 def init_files_if_not_exist():
     create_soft_file()
@@ -10,8 +10,8 @@ def init_files_if_not_exist():
 
 def read_aliases_and_paths():
     result = []
-    if file_exist(softFile):
-        with open(softFile, 'r', encoding='UTF-8') as f:
+    if file_exist(SOFT_FILE):
+        with open(SOFT_FILE, 'r', encoding='UTF-8') as f:
             for line in f:
                 if line[0] != '#' and '|' in line:
                     temp = line.rstrip('\n').split('|')
@@ -20,14 +20,14 @@ def read_aliases_and_paths():
     return result
 
 def find_file_path(fileName: str):
-    if directory_exist(docDir):
-        for file in os.listdir(docDir):
+    if directory_exist(DOCS_DIR):
+        for file in os.listdir(DOCS_DIR):
             if fileName == file[:file.index('.')].lower():
-                return os.path.join(docDir, file)
+                return os.path.join(DOCS_DIR, file)
     return None
 
 def create_soft_file():
-    if not file_exist(softFile):
+    if not file_exist(SOFT_FILE):
         with open('Softwares.txt', 'w', encoding='UTF-8') as f:
             f.write('# Add your aliases and paths to your programs here so I know what you want to run.\n')
             f.write('# ----------\n')
@@ -42,9 +42,9 @@ def create_soft_file():
             f.write('# alias | path\n')
 
 def create_docs_directory():
-    if not directory_exist(docDir):
-        os.makedirs(docDir)
-    filePath = os.path.join(docDir, 'README.txt')   
+    if not directory_exist(DOCS_DIR):
+        os.makedirs(DOCS_DIR)
+    filePath = os.path.join(DOCS_DIR, 'README.txt')   
     if not file_exist(filePath):
         with open(filePath, 'w', encoding='UTF-8') as f:
             f.write('# Store your documents, photos, etc. in this directory\n')

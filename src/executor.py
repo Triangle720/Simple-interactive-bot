@@ -9,7 +9,7 @@ class Function(Enum):
     OPEN_WEB_PAGE = 3
     UPDATE_SOFT_DATA = 4
 
-functionGroups = {
+FUNCTION_GROUPS = {
     ('open', 'execut', 'run') : Function.RUN_SOFTWARE,
     ('open', 'show', 'read') : Function.OPEN_DOCUMENT,
     ('open', 'show', 'go') : Function.OPEN_WEB_PAGE,
@@ -26,9 +26,9 @@ class Executor():
         argsAndFunctions = []
         temp = []
         for act in actions:
-            for key in functionGroups:
+            for key in FUNCTION_GROUPS:
                 if act[0] in key:
-                    temp.append(functionGroups[key])
+                    temp.append(FUNCTION_GROUPS[key])
             argsAndFunctions.append((act[1:], temp))    
             temp = []
         return self.try_if_runable(argsAndFunctions)
